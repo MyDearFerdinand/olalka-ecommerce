@@ -1,0 +1,6 @@
+# Node.js build artifacts
+node_modules
+npm-debug.log
+
+# React build artifacts
+/client/build
