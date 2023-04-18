@@ -1,0 +1,8 @@
+.banner img {
+  max-height: 600px; /* change this to whatever you want */
+
+  object-fit: fill;
+}
+.slide {
+  display: flex;
+}

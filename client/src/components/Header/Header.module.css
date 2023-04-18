@@ -1,0 +1,46 @@
+.brandName {
+  text-decoration: none;
+  color: white;
+}
+.AppBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Toolbar {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer {
+  display: flex;
+  justify-content: center;
+}
+
+.pageName {
+  margin-left: 15px;
+  margin-right: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.navLinks {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.desktopNav .navLinks {
+  margin-left: 15px;
+}
+
+.desktopNav .navLinks .MuiListItemButton-root {
+  padding: 0;
+}
+
+.desktopNav .nnavLinks .MuiListItemText-root {
+  white-space: nowrap;
+}

@@ -1,19 +1,26 @@
-import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import MainLayout from "./components/MainLayout/MainLayout";
+import Products from "./pages/Products/Products";
+import Home from "./pages/Home";
+import Account from "./pages/UserAccount/Account";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
   return (
     <Router>
-      <div>
-        {/* Add your header component here */}
+      <MainLayout>
         <Routes>
           {/* Define your routes here */}
-          <Route exact path="/"  element={<App />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
           {/* Add more routes as needed */}
         </Routes>
-        {/* Add your footer component here */}
-      </div>
+      </MainLayout>
     </Router>
   );
 }
