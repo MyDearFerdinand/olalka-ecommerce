@@ -6,6 +6,8 @@ import {
   IconButton,
   Drawer,
   Box,
+  InputBase,
+  InputAdornment,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,7 +20,10 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const handleSearch = () => {
+    // Implement your search logic here
+    console.log("Search button clicked");
+  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -29,24 +34,28 @@ const Header = () => {
         <ListItemButton
           component={Link}
           to="/products"
+          onClose={handleDrawerToggle}
         >
           <ListItemText primary="Our Dolls" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/products"
+          onClose={handleDrawerToggle}
         >
           <ListItemText primary="New Items" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/about-us"
+          onClose={handleDrawerToggle}
         >
           <ListItemText primary="About Us" />
         </ListItemButton>
         <ListItemButton
           component={Link}
           to="/contacts"
+          onClose={handleDrawerToggle}
         >
           <ListItemText primary="Contacts" />
         </ListItemButton>
@@ -58,7 +67,7 @@ const Header = () => {
     <AppBar position="static" color="default">
       <Toolbar className={styles.Toolbar}>
         <Typography
-          variant="h2"
+          variant="h3"
           component={Link}
           to="/"
           className={styles.pageName}
@@ -79,18 +88,35 @@ const Header = () => {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{ keepMounted: true }}
+            PaperProps={{ style: { height: "15%", maxHeight: "90px" } }}
           >
             {drawer}
           </Drawer>
         </Box>
-        <Box className="desktop-nav" sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1 }}>
+        <Box
+          className={styles.desktopNav}
+          sx={{ display: { xs: "none", md: "flex" }, flexGrow: 1 }}
+        >
           {drawer}
         </Box>
 
         <Box>
-          <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
+          <InputBase
+            placeholder="Search…"
+            inputProps={{ "aria-label": "search" }}
+            className={styles.searchInput}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  edge="start"
+                  aria-label="search"
+                  onClick={handleSearch}
+                >
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
           <IconButton component={Link} to="/cart" color="inherit">
             <ShoppingCartIcon />
           </IconButton>
